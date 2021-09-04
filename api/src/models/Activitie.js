@@ -5,10 +5,9 @@ module.exports = (sequelize) => {
   return sequelize.define('Activity', {
     name: {
       type: DataTypes.STRING,
-      unique: true,
     },
     difficulty: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.ENUM('1', '2', '3', '4', '5'),
     },
     duration: {
       type: DataTypes.STRING,
