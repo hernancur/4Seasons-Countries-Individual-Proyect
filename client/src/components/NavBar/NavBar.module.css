@@ -1,0 +1,31 @@
+.all{
+    display: flex;
+    background-color: lightblue;
+    padding: 2px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.globe{
+    display: flex;
+    align-items: center;
+}
+
+.globe img{
+    height: auto; 
+    width: auto; 
+    max-width: 55px; 
+    max-height: 55px;
+}
+
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+}

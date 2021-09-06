@@ -2,6 +2,7 @@ import React from 'react';
 import CardsStyle from './Cards.module.css'
 import {useSelector} from 'react-redux'
 import CountryCard from '../CountryCard/CountryCard'
+import { Link } from 'react-router-dom'
 
 
 export default function Cards() {
@@ -10,7 +11,9 @@ export default function Cards() {
   
   return (
     <div className={CardsStyle.cartas}>
-      {state?.map((el) => <CountryCard key={el.id} name={el.name} continent={el.continent} img={el.img} />)}
+      {state?.map((el) => <Link to={`/countries/${el.id}`}>
+            <CountryCard key={el.id} name={el.name} continent={el.continent} img={el.img} />
+          </Link>)}
       
     </div>
   )

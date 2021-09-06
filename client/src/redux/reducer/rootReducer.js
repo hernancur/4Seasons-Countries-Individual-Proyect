@@ -2,7 +2,7 @@ import {  GET_BY_ID, GET_BY_NAME, GET_ALL } from '../actions/types'; //
 
 let initialState = {
   countries: [],
-  country: [],
+  country: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -15,7 +15,7 @@ const rootReducer = (state = initialState, action) => {
     case GET_BY_ID:
       return {
         ...state,
-        country: action.payload,
+        country: action.payload
       };
     case GET_BY_NAME:
       return {
