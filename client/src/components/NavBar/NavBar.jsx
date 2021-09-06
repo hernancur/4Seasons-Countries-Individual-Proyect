@@ -11,7 +11,7 @@ export default function NavBar () {
                     <Link to='/home'>
                         <img src='https://upload.wikimedia.org/wikipedia/commons/3/38/Erioll_world_3.png' alt='globe'/>
                     </Link>
-                    <h3>WorldBook</h3>
+                    <h3>4Seasons</h3>
                 </div>
 
                 <div className={NavStyle.search}>
