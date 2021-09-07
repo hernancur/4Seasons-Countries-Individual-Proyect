@@ -6,3 +6,5 @@ export const URL_API_ALL = 'http://localhost:3001/countries';
 export const URL_ID = 'http://localhost:3001/countries/';
 
 export const URL_QUERY_NAME = 'http://localhost:3001/countries?name=';
+
+export const POST_URL = 'http://localhost:3001/activity' 

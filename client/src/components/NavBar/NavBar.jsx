@@ -2,17 +2,27 @@ import React from 'react'
 import SearchBar from './SearchBar/SearchBar.jsx'
 import NavStyle from './NavBar.module.css'
 import { Link } from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import { getAll } from '../../redux/actions/index.js'
 
 
 export default function NavBar () {
+
+    const dispatch = useDispatch()
+
+    function handleClick(e){
+        e.preventDefault()
+        dispatch(getAll())
+    }
+
     return (
         <div className={NavStyle.all}>
-                <div className={NavStyle.globe}>
                     <Link to='/home'>
-                        <img src='https://upload.wikimedia.org/wikipedia/commons/3/38/Erioll_world_3.png' alt='globe'/>
+                        <div className={NavStyle.globe} onClick={handleClick}>
+                                <img src='https://upload.wikimedia.org/wikipedia/commons/3/38/Erioll_world_3.png' alt='globe'/>
+                            <h3>4Seasons</h3>
+                        </div>
                     </Link>
-                    <h3>4Seasons</h3>
-                </div>
 
                 <div className={NavStyle.search}>
                     <SearchBar/>

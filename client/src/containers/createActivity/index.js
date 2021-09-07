@@ -1,8 +1,9 @@
-import React, { useState, useSelector } from 'react'; //useDispatch 
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+import { POST_URL } from '../../utils/variables';
 
 export default function CreateActivity() {
-//   let dispatch = useDispatch();
-
   let state = useSelector((state) => state.countries);
 
   let [activity, setAct] = useState({
@@ -20,8 +21,18 @@ export default function CreateActivity() {
     });
   }
 
-  function handleSubmit(e) {
+  function countriesArrHandler(e) {
+    setAct({
+      ...activity,
+      countriesActivity: Array.from(
+        new Set([...activity.countriesActivity, e.target.value])
+      ),
+    });
+  }
+
+  async function handleSubmit(e) {
     e.preventDefault();
+    await axios.post(POST_URL, activity);
   }
 
   return (
@@ -48,7 +59,7 @@ export default function CreateActivity() {
             value={activity.difficulty}
             required
           >
-            <option selected value={''}></option>
+            <option value={''}></option>
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>
@@ -77,7 +88,7 @@ export default function CreateActivity() {
             onChange={handlerChange}
             value={activity.season}
           >
-            <option selected value={''}></option>
+            <option value={''}></option>
             <option value={'Spring'}>Spring</option>
             <option value={'Summer'}>Summer</option>
             <option value={'Autumn'}>Autumn</option>
@@ -90,10 +101,10 @@ export default function CreateActivity() {
           <select
             name="Country"
             id="Country"
-            onChange={handlerChange}
+            onChange={countriesArrHandler}
             value={activity.countriesActivity}
           >
-            <option selected value={''}></option>
+            <option value={''}></option>
             {state?.map((item) => (
               <option key={item.id} value={item.id}>
                 {item.name}
@@ -103,11 +114,23 @@ export default function CreateActivity() {
 
           {/*                                  CREATE BUTTON                                       */}
 
-          <button className="create-button" type="submit">
+          <button
+            className="create-button"
+            type="submit"
+            // onClick={handleSubmit}
+          >
             Create!
           </button>
+
+          {/*                                  IDS SELECTED COUNTRIES                                       */}
+
+          <ul>
+            {activity.countriesActivity?.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </form>
       </div>
     </div>
   );
-};
+}

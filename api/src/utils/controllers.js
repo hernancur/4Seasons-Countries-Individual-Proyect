@@ -17,7 +17,6 @@ const findById = async function (req, res) {
         capital: Eapi.data.capital,
         subRegion: Eapi.data.subregion,
         area: Eapi.data.area,
-        population: Eapi.data.population,
       };
       Country.findByPk(ident, {
         attributes: { exclude: ['createdAt', 'updatedAt'] },
@@ -31,6 +30,7 @@ const findById = async function (req, res) {
             name: item.name,
             img: item.img,
             continent: item.continent,
+            population: item.population,
             Activities: item.Activities.map((el) => {
               return {
                 id: el.id,
@@ -69,7 +69,6 @@ const findAll = function (req, res) {
             'capital',
             'subRegion',
             'area',
-            'population',
             'createdAt',
             'updatedAt',
           ],
@@ -91,7 +90,6 @@ const findAll = function (req, res) {
             'capital',
             'subRegion',
             'area',
-            'population',
             'createdAt',
             'updatedAt',
           ],

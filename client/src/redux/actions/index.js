@@ -18,7 +18,9 @@ export const getById = (id) => {
 
 export const getByName = (name) => {
   return async (dispatch) => {
-    let response = await axios.get(URL_QUERY_NAME + name); // http://localhost:3001/countries?name= + name
-    dispatch({ type: GET_BY_NAME, payload: response.data });
+    if(name){
+      let response = await axios.get(URL_QUERY_NAME + name); // http://localhost:3001/countries?name= + name
+      dispatch({ type: GET_BY_NAME, payload: response.data });
+    }
   };
 };

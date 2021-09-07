@@ -34,6 +34,7 @@ conn.sync({ force: true }).then(async () => {
           name: item.name,
           img: item.flag,
           continent: item.region,
+          population: item.population
         };
       });
       await Country.bulkCreate(vital);

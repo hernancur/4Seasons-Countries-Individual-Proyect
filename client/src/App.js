@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './App.css';
 import LandingContainer from './containers/landing';
 import Home from './containers/home';
 import { Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getAll } from '../src/redux/actions/index'
 import countryDetails from './containers/countryDetails';
 import CreateActivity from './containers/createActivity/index'
 
@@ -12,11 +10,7 @@ import CreateActivity from './containers/createActivity/index'
 
 function App() {
 
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAll()); // pre carga de todos los paises para mostrarlos de 1
-  }, [dispatch]);
 
   return (
     <div className="App">

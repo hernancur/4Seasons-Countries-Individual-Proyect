@@ -8,12 +8,13 @@ export default function SearchBar() {
 
   const [search, setSearch] = useState("")
   const dispatch = useDispatch()
-
+  
 
   return (
     <form onSubmit={(e) => {
       e.preventDefault();
       dispatch(getByName(search))
+      setSearch("")
       
     }}>
       <input
@@ -22,6 +23,7 @@ export default function SearchBar() {
         type="text"
         placeholder="Search your country..."
         name="search"
+        value={search}
       />
       <input type="submit" className={SearchBarStyle.boton} value="Go!"/> 
     </form>
