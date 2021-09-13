@@ -1,21 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CardsStyle from './Cards.module.css'
 import {useSelector} from 'react-redux'
 import CountryCard from '../CountryCard/CountryCard'
 import { Link } from 'react-router-dom'
+import Pagination from '../Pagination/pagination';
+import OrderFilters from '../Filters/filters.jsx';
 
 
-export default function Cards() {
+export default  function Cards() {
  
-  let state = useSelector(state => state.countries)
+  let state =  useSelector( state =>  state.filteredCountries)
+  // let actState = useSelector(state => state.filteredAct)
 
-  /* temas a ver: 
-    no me muestra el pais 10 porque queda por fuera del 9-10 del paginado
-  */
-
-
-  /*                                                   PAGINATION                                           */
-  
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(9)
 
@@ -24,7 +20,6 @@ export default function Cards() {
   const [minPage, setMinPage] = useState(0)
 
   
-  let pages = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
 
   const indexOfLastItem = currentPage*itemsPerPage
   const indexOfFirstItem = indexOfLastItem-itemsPerPage 
@@ -53,43 +48,38 @@ export default function Cards() {
     }
   }
 
-  let pageIncrementButton = null;
-  if(pages.length > maxPage){
-    pageIncrementButton = <li onClick={handleNext}>&hellip;</li>
-  }
-  
-  let pageDecrementButton = null;
-  if(pages.length > maxPage){
-    pageDecrementButton = <button onClick={handlePrev} disabled={currentPage===pages[0]?true:false}>&hellip;</button>
-  }
-  
+  useEffect(()=>{
+    setCurrentPage(1)
+  }, [state])
+
   return (
-    <div className={CardsStyle.cartas}>
-      <ul className={CardsStyle.pagination}>
+    <>
+     
 
-        <li>
-          <button onClick={handlePrev} disabled={currentPage===pages[0]?true:false} >PREV</button>
-        </li>
-        {pageDecrementButton}
-        {pages?.map(item => {
-          
-          if(item<maxPage+1 && item>minPage){
-            return <li key={item}  id={item} onClick={handleClick} className={currentPage===item ? CardsStyle.active : null} >{item}</li>
-          }else{
-            return null
-          }})}
-        {pageIncrementButton}
-        <li>
-          <button onClick={handleNext} disabled={currentPage===pages[24]?true:false}>NEXT</button>
-        </li>
+      <div className={CardsStyle.fil}>
+        <OrderFilters />
+      </div>
 
-      </ul>
+      <div className={CardsStyle.cardss}>
+        {currentItems?.map((el) =>
+            <Link key={el.id} to={`/countries/${el.id}`}>
+              <CountryCard key={el.population} name={el.name} continent={el.continent} img={el.img} />
+            </Link>)}
+      </div>
 
-      {currentItems?.map((el) =>
-          <Link key={el.id} to={`/countries/${el.id}`}>
-            <CountryCard key={el.population} name={el.name} continent={el.continent} img={el.img} />
-          </Link>)}
+      <div className={CardsStyle.pag}>
+        <Pagination 
+          currentPage={currentPage}
+          handleClick={handleClick}
+          handlePrev={handlePrev}
+          handleNext={handleNext}
+          maxPage={maxPage}
+          minPage={minPage}
+          state={state.length}
+          itemsPerPage={itemsPerPage}
+        />
+      </div>
 
-    </div>
+    </>
   )
 };

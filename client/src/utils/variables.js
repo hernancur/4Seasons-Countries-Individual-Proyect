@@ -8,3 +8,14 @@ export const URL_ID = 'http://localhost:3001/countries/';
 export const URL_QUERY_NAME = 'http://localhost:3001/countries?name=';
 
 export const POST_URL = 'http://localhost:3001/activity' 
+
+export const URL_ALL_ACTIVITIES = "http://localhost:3001/activity/get"
+
+export function actFilter(arr,name){
+  for(let i=0; i<arr.length; i++){
+    if(arr[i].name === name){
+      return arr[i]
+    }
+  }
+  return false
+}

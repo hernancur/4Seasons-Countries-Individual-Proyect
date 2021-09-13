@@ -1,0 +1,23 @@
+.busqueda{
+    border: none;
+    font-family: inherit;
+    height: 18px;
+    font-size: 18px;
+    font-weight: 500;
+    background: none;
+    border-radius: 10px;
+    color: #ffffff;
+    outline: none;
+}
+
+.boton{
+    font-size: 18px;
+    color: rgba(243, 243, 212, 0.863);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.boton:hover{
+    cursor: pointer;
+}
+

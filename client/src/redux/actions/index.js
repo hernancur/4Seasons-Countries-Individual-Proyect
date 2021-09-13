@@ -1,6 +1,7 @@
-import { GET_ALL, GET_BY_NAME, GET_BY_ID } from './types'; // 
+import { GET_ALL, GET_BY_NAME, GET_BY_ID, ORDER, POPULATION, FILTER, GET_ALL_ACT, GET_ACT_COUNT} from './types'; // 
 import axios from 'axios';
-import { URL_API_ALL, URL_ID, URL_QUERY_NAME } from '../../utils/variables'; //  
+import { URL_API_ALL, URL_ID, URL_QUERY_NAME, URL_ALL_ACTIVITIES } from '../../utils/variables'; //  
+import { bindActionCreators } from 'redux';
 
 export const getAll = () => {
   return async (dispatch) => {
@@ -24,3 +25,38 @@ export const getByName = (name) => {
     }
   };
 };
+
+export const getActivities = () => {
+  return async (dispatch) => {
+    let response = await axios.get(URL_ALL_ACTIVITIES)
+    dispatch({type: GET_ALL_ACT, payload: response.data})
+  }
+}
+
+//                          **                    ORDENAMIENTOS                       ** 
+
+export const order = (value)=> {
+  return (dispatch) => {
+    dispatch({type: ORDER, payload: value})
+  }
+}
+
+export const population = (value) => {
+  return (dispatch) => {
+    dispatch({type: POPULATION, payload: value})
+  }
+}
+
+//                         **                    FILTRADOS                       ** 
+
+export const filter = (value) => {
+  return (dispatch) => {
+    dispatch({type: FILTER, payload:value})
+  }
+}
+
+export const actFilter = (value) => {
+  return (dispatch) => {
+    dispatch({type: GET_ACT_COUNT, payload: value})
+  }
+}

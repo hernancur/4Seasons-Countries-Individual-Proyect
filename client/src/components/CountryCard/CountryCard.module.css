@@ -1,0 +1,22 @@
+.all{
+    display: flex;
+    width: 330px;
+    height: 140px;
+    justify-content: center;
+    background-color: transparent;
+    gap: 12px;
+}
+
+.img{
+    width: 230px;
+    height: 140px;
+    background-size: 100%;
+}
+
+.container{
+    text-align: right;
+}
+
+.all:hover{
+    scale: 100%;
+}

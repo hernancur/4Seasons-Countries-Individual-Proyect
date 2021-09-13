@@ -17,23 +17,26 @@ export default function NavBar () {
 
     return (
         <div className={NavStyle.all}>
-                    <Link to='/home'>
-                        <div className={NavStyle.globe} onClick={handleClick}>
-                                <img src='https://upload.wikimedia.org/wikipedia/commons/3/38/Erioll_world_3.png' alt='globe'/>
-                            <h3>4Seasons</h3>
+                        <div onClick={handleClick} className={NavStyle.container}>
+                            <Link to='/home'>
+                                <ul className={NavStyle.main}>
+                                    <li data-val="Home">Home</li>
+                                </ul>
+                            </Link>
                         </div>
-                    </Link>
 
-                <div className={NavStyle.search}>
+
+                    <div className={NavStyle.container}>
+                        <Link to='/createActivity'>
+                            <ul className={NavStyle.main}>
+                                <li data-val="Book an activity">Book an activity</li>
+                            </ul>
+                        </Link>
+                    </div>
+
+                <div className={NavStyle.container}>
                     <SearchBar/>
                 </div>
-
-                <Link to='/createActivity'>
-                    <div className={NavStyle.book}>
-                        <h3>Book an activity</h3>
-                    </div>
-                </Link>
-
         </div>
     )
 }

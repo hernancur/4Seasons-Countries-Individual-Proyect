@@ -36,7 +36,7 @@ export default function CountryDetails() {
           </div>
           <div>
             {item.Activities?.map((act) => (
-              <div className={act.id}>
+              <div className={act.id} key={act.id}>
                 <span>Activity: {act.name}</span>
                 <span>Difficulty: {act.difficulty}</span>
                 <span>Duration: {act.duration}</span>

@@ -38,10 +38,10 @@ export default function CreateActivity() {
   return (
     <div className="form">
       <div>
-        <form onSubmit={handleSubmit}>
+        <form key="1" onSubmit={handleSubmit}>
           {/*                                      NAME                                       */}
 
-          <label>Activity Name</label>
+          <label key="activity name">Activity Name</label>
           <input
             name="name"
             value={activity.name}
@@ -51,7 +51,7 @@ export default function CreateActivity() {
 
           {/*                                  DIFFICULTY                                       */}
 
-          <label>Difficulty</label>
+          <label key="difficulty" >Difficulty</label>
           <select
             name="difficulty"
             id="difficulty"
@@ -59,7 +59,7 @@ export default function CreateActivity() {
             value={activity.difficulty}
             required
           >
-            <option value={''}></option>
+            <option value={''}>Select difficulty</option>
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>

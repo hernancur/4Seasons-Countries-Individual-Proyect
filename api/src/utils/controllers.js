@@ -43,7 +43,7 @@ const findById = async function (req, res) {
           };
         });
         res.send(Object.assign(response[0], union));
-      }); // working
+      });
     }
   } catch (error) {
     res.send(COUNTRY_NOT_FOUND);
@@ -54,8 +54,7 @@ const findAll = function (req, res) {
   let searchName = req.query.name ? req.query.name : null;
 
   if (searchName && typeof searchName === 'string') {
-    searchName =
-      searchName.charAt(0).toUpperCase() + searchName.slice(1).toLowerCase();
+    searchName = searchName.charAt(0).toUpperCase() + searchName.slice(1).toLowerCase();
     // UpperCase the first letter and Lower the rest of it
     try {
       Country.findAll({
@@ -65,13 +64,7 @@ const findAll = function (req, res) {
           },
         },
         attributes: {
-          exclude: [
-            'capital',
-            'subRegion',
-            'area',
-            'createdAt',
-            'updatedAt',
-          ],
+          exclude: ['capital', 'subRegion', 'area', 'createdAt', 'updatedAt'],
         },
       }).then((response) => {
         if (!response.length) res.status(404).send(COUNTRY_NOT_FOUND);
@@ -86,14 +79,9 @@ const findAll = function (req, res) {
     try {
       Country.findAll({
         attributes: {
-          exclude: [
-            'capital',
-            'subRegion',
-            'area',
-            'createdAt',
-            'updatedAt',
-          ],
+          exclude: ['capital', 'subRegion', 'area', 'createdAt', 'updatedAt'],
         },
+        include: [{ model: Activity }],
       }).then((response) => res.status(200).send(response));
     } catch (error) {
       res.send(error);
@@ -129,8 +117,21 @@ const postActivity = function (req, res) {
   }
 };
 
+const getActivities = function (req, res) {
+  try {
+    Activity.findAll({
+      attributes: {
+        exclude: ['createdAt', 'updatedAt'],
+      },
+    }).then((response) => res.status(200).send(response));
+  } catch (error) {
+    res.send(error);
+  }
+};
+
 module.exports = {
   findById: findById,
   findAll: findAll,
   postActivity: postActivity,
+  getActivities: getActivities,
 };

@@ -1,3 +1,8 @@
 export const GET_ALL = "GET_ALL"
 export const GET_BY_NAME = "GET_BY_NAME"
 export const GET_BY_ID = "GET_BY_ID"
+export const ORDER = "ORDER"
+export const POPULATION = "POPULATION"
+export const FILTER = "FILTER"
+export const GET_ALL_ACT = "GET_ALL_ACT"
+export const GET_ACT_COUNT = "GET_ACT_COUNT"

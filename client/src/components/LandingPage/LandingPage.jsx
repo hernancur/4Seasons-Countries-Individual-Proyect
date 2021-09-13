@@ -11,12 +11,12 @@ export default function LandingPage(){
         <div className={Landing.all}>
             <div className={Landing.center}>
                 <div className={Landing.landingTitle}>
-                    <span>EXPLORE THE WORLD</span>
-                    <span>BOOK YOUR DREAMS</span>
+                    <span className={Landing.season}>4Seasons</span>
+                    <span className={Landing.explore}>Explore the world, book your dreams</span>
                 </div>
                 <Link to='/home'>
                     <div className={Landing.buttonDiv}>
-                        <span className={Landing.button}>Show me</span>
+                        <button className={Landing.button}>Show me</button>
                     </div>
                 </Link>
             </div>

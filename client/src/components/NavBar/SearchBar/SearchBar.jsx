@@ -11,22 +11,24 @@ export default function SearchBar() {
   
 
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault();
-      dispatch(getByName(search))
-      setSearch("")
-      
-    }}>
-      <input
-        onChange={e => setSearch(e.target.value)}
-        className={SearchBarStyle.busqueda}
-        type="text"
-        placeholder="Search your country..."
-        name="search"
-        value={search}
-      />
-      <input type="submit" className={SearchBarStyle.boton} value="Go!"/> 
-    </form>
+    <div>
+      <form onSubmit={(e) => {
+        e.preventDefault();
+        dispatch(getByName(search))
+        setSearch("")
+        
+      }}>
+        <input
+          onChange={e => setSearch(e.target.value)}
+          className={SearchBarStyle.busqueda}
+          type="text"
+          placeholder="Search your country..."
+          name="search"
+          value={search}
+        />
+        <input type="submit" className={SearchBarStyle.boton} value={`\uD83C\uDF1F`}/> 
+      </form>
+    </div>
   )
 };
 

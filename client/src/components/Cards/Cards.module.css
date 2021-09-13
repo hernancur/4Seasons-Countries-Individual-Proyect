@@ -1,50 +1,27 @@
-.cards{
+/* .pag{
+
+} */
+
+.fil{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 80vw;
 }
 
-.pagination{
-    list-style: none;
+.cardss{
     display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    
 }
 
-.pagination li{
-    padding: 10px;
-    cursor: pointer;
-}
-
-.active {
-    background-color: rgb(198, 236, 204);
-    color: rgb(8, 59, 25);
-    border-radius: 20px;
-}
-
-.pagination li button {
-    background-color: transparent;
-    border: none;
-    color:rgb(8, 59, 25);
-    font-size: 1,5rem;
-    cursor: pointer;
-    border-radius: 20px;
-}
-
-.pagination li button:hover{
-    background-color: rgb(8, 59, 25);
+.cardss a{
+    text-decoration: none;
     color: white
-}
-
-.pagination li button:focus{
-    outline: none;
-}
-
-.pagination button{
-    background-color: transparent;
-    border: none;
-    color:rgb(8, 59, 25);
-    font-size: 1,5rem;
-    cursor: pointer;
-    border-radius: 20px;
 }
