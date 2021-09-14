@@ -5,6 +5,8 @@
     justify-content: center;
     background-color: transparent;
     gap: 12px;
+    border-radius: 13px;
+    transition: 0.4s;
 }
 
 .img{
@@ -18,5 +20,6 @@
 }
 
 .all:hover{
-    scale: 100%;
+    transform: scale(1.059);
+    box-shadow: 2px 12px 15px 3px rgba(24, 4, 4, 0.479)
 }

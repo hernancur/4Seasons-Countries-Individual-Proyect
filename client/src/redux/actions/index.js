@@ -1,7 +1,6 @@
 import { GET_ALL, GET_BY_NAME, GET_BY_ID, ORDER, POPULATION, FILTER, GET_ALL_ACT, GET_ACT_COUNT} from './types'; // 
 import axios from 'axios';
 import { URL_API_ALL, URL_ID, URL_QUERY_NAME, URL_ALL_ACTIVITIES } from '../../utils/variables'; //  
-import { bindActionCreators } from 'redux';
 
 export const getAll = () => {
   return async (dispatch) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-// import style from './filters.module.css'
+import style from './filters.module.css'
 import {order, population, filter, actFilter} from '../../redux/actions/index'
 
 export default function OrderFilters(){
@@ -9,7 +9,9 @@ export default function OrderFilters(){
     const dispatch = useDispatch()
 
     function handleOrderChange(e){
-        if(e.target.value==="UP" || e.target.value === "DOWN"){
+        if(e.target.value === "Default"){
+            dispatch(filter(e.target.value))
+        }else if(e.target.value==="UP" || e.target.value === "DOWN"){
             dispatch(order(e.target.value))
         }else{
             dispatch(population(e.target.value))
@@ -26,7 +28,7 @@ export default function OrderFilters(){
 
     return(
         <>
-            <div>
+            <div className={style.box}>
             {/*                               ORDENAMIENTO                              */}
                 <select  onChange={handleOrderChange}>
                     <option value="Default">Order By</option>

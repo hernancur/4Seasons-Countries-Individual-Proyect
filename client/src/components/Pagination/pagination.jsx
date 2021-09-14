@@ -30,7 +30,8 @@ export default function Pagination({currentPage, handleClick, handlePrev, handle
             <li>
             <button onClick={handlePrev} disabled={currentPage===pages[0]?true:false} >PREV</button>
             </li>
-            {pageDecrementButton}
+            {currentPage > 5? pageDecrementButton: false}
+            
             {pages?.map(item => {
             
             if(item<maxPage+1 && item>minPage){

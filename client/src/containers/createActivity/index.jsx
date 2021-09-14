@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom'
 import axios from 'axios';
 import { POST_URL } from '../../utils/variables';
 
 export default function CreateActivity() {
   let state = useSelector((state) => state.countries);
+  let {push} = useHistory()
 
   let [activity, setAct] = useState({
     name: '',
@@ -13,6 +15,10 @@ export default function CreateActivity() {
     season: '',
     countriesActivity: [],
   });
+
+  let [stateButton, setSB] = useState(true)
+
+
 
   function handlerChange(e) {
     setAct({
@@ -33,7 +39,18 @@ export default function CreateActivity() {
   async function handleSubmit(e) {
     e.preventDefault();
     await axios.post(POST_URL, activity);
+    alert("Activity created successfully")
+    push('/home')
   }
+
+  useEffect(()=> {
+    if(activity.name && activity.difficulty && activity.duration && activity.season && activity.countriesActivity.length){
+      setSB(false)
+    }else{
+      setSB(true)
+    }
+  },[activity])
+
 
   return (
     <div className="form">
@@ -117,7 +134,7 @@ export default function CreateActivity() {
           <button
             className="create-button"
             type="submit"
-            // onClick={handleSubmit}
+            disabled={stateButton ? true : false}
           >
             Create!
           </button>

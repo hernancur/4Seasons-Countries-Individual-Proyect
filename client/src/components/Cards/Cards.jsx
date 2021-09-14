@@ -11,7 +11,7 @@ export default  function Cards() {
  
   let state =  useSelector( state =>  state.filteredCountries)
   // let actState = useSelector(state => state.filteredAct)
-
+  
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(9)
 
@@ -23,7 +23,8 @@ export default  function Cards() {
 
   const indexOfLastItem = currentPage*itemsPerPage
   const indexOfFirstItem = indexOfLastItem-itemsPerPage 
-  const currentItems = state.slice(indexOfFirstItem, indexOfLastItem) 
+  const currentItems = state?.slice(indexOfFirstItem, indexOfLastItem)   // state.error ? false : 
+
 
   function handleClick(e){
     if(Number(e.target.id) === 1) setItemsPerPage(9)
@@ -51,7 +52,7 @@ export default  function Cards() {
   useEffect(()=>{
     setCurrentPage(1)
   }, [state])
-
+  //state.error? alert("Country not found") : 
   return (
     <>
      

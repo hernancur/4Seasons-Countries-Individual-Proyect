@@ -1,0 +1,174 @@
+.all{
+    background-image: url(https://images.pexels.com/photos/1421903/pexels-photo-1421903.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    display: flex;
+    /* background: black; */
+    height: 100vh;
+    color: white;
+    
+}
+
+.container{
+    /* background: green; */
+    position: relative;
+    height: 90%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    flex-direction: column;
+    gap: 1%;
+    padding: 1em;
+}
+
+
+
+.nameContainer{
+    position: relative;
+    height: 50%;
+    width: 100%;
+    /* background: skyblue; */
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.nameContainer h5{
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    z-index: 1;
+}
+
+h5:hover{
+    cursor: pointer;
+}
+
+
+.nameContainer__flag{
+    position: relative;
+    width: 40%;
+    height: 100%;
+    /* background: purple; */
+}
+
+.nameContainer__flag img{
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+}
+
+.nameContainer__name{
+    position: relative;
+    width: 60%;
+    height: 100%;
+    /* background: rgb(211, 20, 211); */
+    display: flex;
+    flex-direction: column;
+    padding-left: 2em;
+}
+
+.nameContainer__name__country{
+    position: relative;
+    width: max-content;
+    height: 70%;
+    /* background: orange */
+}
+
+.nameContainer__name__capital{
+    position: relative;
+    width: max-content;
+    height: 30%;
+    /* background: rgb(128, 86, 8) */
+}
+
+.infoContainer{
+    position: relative;
+    height: 50%;
+    width: 100%;
+    /* background: skyblue; */
+    display: flex;
+    flex-direction: column;
+}
+
+.infoContainer__properties{
+    position: relative;
+    /* background: purple; */
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0.7em 0;
+
+}
+
+
+.infoContainer__properties__1{
+    position: relative;
+    /* background: orange; */
+    width: 20%;
+}
+
+.infoContainer__activities{
+    position: relative;
+    /* background: rgb(216, 58, 216); */
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+
+}
+
+.infoContainer__activities__card{
+    position: relative;
+    background: rgba(0, 0, 0, 0.212);
+    /* background: orange; */
+    width: 18%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.infoContainer__activities__card__infoContainer__1{
+    /* background: rgb(245, 34, 69); */
+    position: relative;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0.5em;
+}
+
+.infoContainer__activities__card__infoContainer__1__season,
+.infoContainer__activities__card__infoContainer__1__name{
+    /* background: greenyellow; */
+    position: relative;
+    width: 100%;
+    height: 45%;
+    
+}
+
+.infoContainer__activities__card__infoContainer__2{
+    /* background: rgb(129, 12, 32); */
+    position: relative;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0.5em;
+}
+
+.infoContainer__activities__card__infoContainer__2__duration,
+.infoContainer__activities__card__infoContainer__2__difficulty{
+    /* background: rgb(78, 126, 7); */
+    position: relative;
+    height: max-content;
+    width: 45%;
+
+}
+

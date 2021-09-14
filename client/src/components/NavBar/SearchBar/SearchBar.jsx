@@ -22,7 +22,7 @@ export default function SearchBar() {
           onChange={e => setSearch(e.target.value)}
           className={SearchBarStyle.busqueda}
           type="text"
-          placeholder="Search your country..."
+          placeholder="Search country here..."
           name="search"
           value={search}
         />

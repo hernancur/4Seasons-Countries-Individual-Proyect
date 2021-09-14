@@ -37,6 +37,8 @@ const rootReducer = (state = initialState, action) => {
         country: action.payload,
       };
     case GET_BY_NAME:
+      if (action.payload.error)
+        return alert(`${action.payload.search} is not a country`);
       return {
         ...state,
         filteredCountries: action.payload,
@@ -48,7 +50,6 @@ const rootReducer = (state = initialState, action) => {
           filteredCountries: state.countries,
         };
       } else if (action.payload && action.payload === 'UP') {
-        // este es el value que debo darle al <option> para que funcione
         let copy = state.filteredCountries;
         return {
           ...state,
