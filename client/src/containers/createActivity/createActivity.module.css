@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.form{
+    position: relative;
+    background-image: url(https://images.pexels.com/photos/1393918/pexels-photo-1393918.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    display: flex;
+    height: 100vh;
+
+
+}
+
+
+.form input{
+    text-align: center;
+}
+
+.form select{
+    position: relative;
+    width: 70%;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+}
+
+.form button{
+    position: absolute;
+    background: transparent;
+    border: none;
+    /* text-decoration: none; */
+    font-family: Poppins;
+    color: white;
+    font-size: 25px;
+
+}
+
+.divBut{
+  top: 560px;
+  margin-right: 100px;
+}
+
+.form button:hover{
+    background: rgba(255, 255, 255, 0.973);
+    color: black;
+    
+}
+
+.form__lef a{
+    position: absolute;
+    top: 95px;
+    left: 95px;
+
+}
+
+.form__side{
+    background: rgba(0, 0, 0, 0.63);
+    height: 90%;
+    width: 50%;
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    margin-right: 50px;
+
+}
+
+.form__side__up{
+    height: 30%;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;    
+    flex-direction: column;
+
+}
+
+
+.form__side__up_up{
+    color: white;
+    position: relative;
+    display: flex;
+    height: 30%;
+    width: 80%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form__side__up_up input{
+    position: relative;
+    width: 70%;
+}
+
+.form__side__up_down input{
+    position: relative;
+    width: 70%;
+}
+
+
+
+.form__side__down__down__right{
+    color: black;
+    position: relative;
+    width: 70%;
+    height: 40%;
+}
+
+.form__side__up_down{
+    color: white;
+    position: relative;
+    display: flex;
+    height: 30%;
+    width: 80%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.form__side__down{
+    height: 30%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form__side__down__up{
+    position: relative;
+    display: flex;
+    height: 30%;
+    width: 80%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form__side__down__down{
+    position: relative;
+    display: flex;
+    height: 30%;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.form__side__down__down__left{
+    position: relative;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.form__side__down__down__left_season{
+    position: relative;
+    height: 30%;
+    color: white;
+    font-family: Poppins;
+}
+
+.form__side__down__down__right{
+    position: relative;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+}
+
+
+.form__labelName{
+    font-family: Poppins;
+}
+
+form__labelDuration{
+    font-family: Poppins;
+}
+
+.form__side__down__up__country{
+    color: white;
+    font-family: Poppins;
+}
+
+.form__side__down__down__right__diff{
+    color: white;
+    font-family: Poppins;
+}
+
+.opacity{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

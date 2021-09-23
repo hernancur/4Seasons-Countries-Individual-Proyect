@@ -9,9 +9,4 @@ const router = Router();
 router.use('/countries', countries);
 router.use('/activity', activity);
 
-// VER ESTOOOOOOOOOOOOOOOOOOOOOOO!!!!!!!!!!!!!
-// router.get('/', (req, res) => {
-//   res.send('hola');
-// });
-
 module.exports = router;

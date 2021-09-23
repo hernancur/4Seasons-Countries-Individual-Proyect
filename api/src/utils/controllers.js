@@ -54,7 +54,8 @@ const findAll = function (req, res) {
   let searchName = req.query.name ? req.query.name : null;
 
   if (searchName && typeof searchName === 'string') {
-    searchName = searchName.charAt(0).toUpperCase() + searchName.slice(1).toLowerCase();
+    searchName =
+      searchName.charAt(0).toUpperCase() + searchName.slice(1).toLowerCase();
     // UpperCase the first letter and Lower the rest of it
     try {
       Country.findAll({
@@ -67,14 +68,14 @@ const findAll = function (req, res) {
           exclude: ['capital', 'subRegion', 'area', 'createdAt', 'updatedAt'],
         },
       }).then((response) => {
-        if (!response.length) res.status(404).send(COUNTRY_NOT_FOUND);
-        else res.status(200).send(response);
+        if (!response.length) return res.json({"error": COUNTRY_NOT_FOUND, "search": searchName}); // VER ESTO
+        else return res.status(200).send(response);
       });
     } catch (error) {
       res.send(error);
     }
   } else if (searchName && typeof searchName !== 'string') {
-    res.send(WRONG_ID);
+    return res.send(WRONG_ID);
   } else {
     try {
       Country.findAll({
@@ -90,12 +91,14 @@ const findAll = function (req, res) {
 };
 
 const postActivity = function (req, res) {
-  let { name, difficulty, duration, season, countriesActivity } = req.body;
+  let { name, difficulty, duration, season, countriesActivity, price } = req.body;
+  price = Number(price)
   if (
     typeof name !== 'string' ||
     typeof difficulty !== 'string' ||
     typeof duration !== 'string' ||
     typeof season !== 'string' ||
+    typeof price !== 'number' ||
     !Array.isArray(countriesActivity)
   ) {
     res.send(WRONG_PARAMETER);
@@ -106,6 +109,7 @@ const postActivity = function (req, res) {
         difficulty,
         duration,
         season,
+        price
       };
 
       Activity.create(obj)

@@ -31,9 +31,9 @@ const { Country, Activity } = require('./src/db.js');
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
   let aux = await Country.findAll();
-  let activities = [ACTIVITY_1, ACTIVITY_2, ACTIVITY_3]; // Activities pre-load
+  let activities = [ACTIVITY_1, ACTIVITY_2, ACTIVITY_3];
   if (!aux.length) {
-    await axios.get(URL_ALL).then(async (response) => {
+    axios.get(URL_ALL).then(async (response) => {
       let vital = response.data?.map((item) => {
         return {
           id: item.alpha3Code,
@@ -44,7 +44,11 @@ conn.sync({ force: true }).then(async () => {
         };
       });
       await Country.bulkCreate(vital);
-      await activities.map(item => Activity.create(item).then(response => response.addCountries(item.countriesActivity)))
+      activities.map((item) =>
+        Activity.create(item).then((response) =>
+          response.addCountries(item.countriesActivity)
+        )
+      );
     });
   }
   server.listen(3001, () => {

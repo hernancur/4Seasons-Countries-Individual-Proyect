@@ -13,15 +13,18 @@ export default function Pagination({currentPage, handleClick, handlePrev, handle
     }
 
     let pageIncrementButton = null;
+
     if(pages.length > maxPage){
       pageIncrementButton = <li onClick={handleNext} disabled={currentPage===pages.length-1?true:false}>&hellip;</li>
     }
 
     let pageDecrementButton = null;
-    if(pages.length > maxPage){
+
+    if(pages.length > maxPage){ // CORREGIR 
       pageDecrementButton = <button onClick={handlePrev} disabled={currentPage===pages[0]?true:false}>&hellip;</button>
     }
 
+    // PREV ... 1  2  3  4  5 ... NEXT
 
     return(
         <div>
@@ -30,6 +33,7 @@ export default function Pagination({currentPage, handleClick, handlePrev, handle
             <li>
             <button onClick={handlePrev} disabled={currentPage===pages[0]?true:false} >PREV</button>
             </li>
+
             {currentPage > 5? pageDecrementButton: false}
             
             {pages?.map(item => {
@@ -39,7 +43,9 @@ export default function Pagination({currentPage, handleClick, handlePrev, handle
             }else{
                 return null
             }})}
+
             {pageIncrementButton}
+
             <li>
             <button onClick={handleNext} disabled={currentPage===pages[24]?true:false}>NEXT</button>
             </li>
