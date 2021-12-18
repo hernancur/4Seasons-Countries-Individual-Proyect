@@ -1,7 +1,7 @@
 # Individual Project - Henry Countries
 
 <p align="left">
-  <img height="200" src="./countries.png" />
+  <img height="200" src="https://www.covestro.com/-/media/covestro/corporate/company/covestro-worldwide/overview/images/covestro_worldwide_2640x960.jpg" />
 </p>
 
 ## Objetivos del Proyecto
